@@ -11,7 +11,21 @@ import SwiftUI
 struct HealthDeprivedApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "house.fill")
+                    }
+                    .preferredColorScheme(.light)
+
+                SettingsView()
+                    .tabItem {
+                        Label("Settings", systemImage: "slider.vertical.3")
+                    }
+                    .preferredColorScheme(.light)
+                
+            }
+            
         }
     }
 }
