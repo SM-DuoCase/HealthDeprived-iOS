@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0337EF29DAB7000061DEEB /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337EE29DAB7000061DEEB /* HomeModel.swift */; };
+		9E0337F129DAC1F70061DEEB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337F029DAC1F70061DEEB /* SettingsModel.swift */; };
+		9E0337F329DAF5740061DEEB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337F229DAF5740061DEEB /* HomeViewModel.swift */; };
+		9E0337F529DD93ED0061DEEB /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337F429DD93ED0061DEEB /* Factory.swift */; };
 		9EA7ADAC29CB265C0065B0D5 /* HealthDeprivedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA7ADAB29CB265C0065B0D5 /* HealthDeprivedApp.swift */; };
 		9EA7ADB029CB265E0065B0D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA7ADAF29CB265E0065B0D5 /* Assets.xcassets */; };
 		9EA7ADB329CB265E0065B0D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA7ADB229CB265E0065B0D5 /* Preview Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0337EE29DAB7000061DEEB /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		9E0337F029DAC1F70061DEEB /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		9E0337F229DAF5740061DEEB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9E0337F429DD93ED0061DEEB /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		9EA7ADA829CB265C0065B0D5 /* HealthDeprived.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthDeprived.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA7ADAB29CB265C0065B0D5 /* HealthDeprivedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDeprivedApp.swift; sourceTree = "<group>"; };
 		9EA7ADAF29CB265E0065B0D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +68,7 @@
 				9EA7ADAB29CB265C0065B0D5 /* HealthDeprivedApp.swift */,
 				9EA7ADAF29CB265E0065B0D5 /* Assets.xcassets */,
 				9EA7ADB129CB265E0065B0D5 /* Preview Content */,
+				9E0337F429DD93ED0061DEEB /* Factory.swift */,
 			);
 			path = HealthDeprived;
 			sourceTree = "<group>";
@@ -76,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				9EF061F129D57E45003428B9 /* HomeView.swift */,
+				9E0337EE29DAB7000061DEEB /* HomeModel.swift */,
+				9E0337F229DAF5740061DEEB /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -84,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				9EF061F429D57ED4003428B9 /* SettingsView.swift */,
+				9E0337F029DAC1F70061DEEB /* SettingsModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -158,9 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E0337EF29DAB7000061DEEB /* HomeModel.swift in Sources */,
+				9E0337F329DAF5740061DEEB /* HomeViewModel.swift in Sources */,
+				9E0337F129DAC1F70061DEEB /* SettingsModel.swift in Sources */,
 				9EF061F529D57ED4003428B9 /* SettingsView.swift in Sources */,
 				9EF061F229D57E45003428B9 /* HomeView.swift in Sources */,
 				9EA7ADAC29CB265C0065B0D5 /* HealthDeprivedApp.swift in Sources */,
+				9E0337F529DD93ED0061DEEB /* Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +310,7 @@
 				DEVELOPMENT_TEAM = R9XJ622U85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to read your health data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -326,6 +343,7 @@
 				DEVELOPMENT_TEAM = R9XJ622U85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to read your health data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
