@@ -42,7 +42,7 @@ class HomeViewModel: ObservableObject {
             //print(samples)
             print("Test 2")
             for sample in samples {
-                print(sample.value(forKey: <#T##String#>))
+//                print(sample.value(forKey: <#T##String#>))
             }
             
             // The results come back on an anonymous background queue.
