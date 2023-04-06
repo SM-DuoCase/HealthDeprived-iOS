@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EF0C16529DAB591007143DE /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0C16429DAB591007143DE /* SleepContentView.swift */; };
+		4EF0C16829DAEBFC007143DE /* HeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0C16729DAEBFC007143DE /* HeartRateView.swift */; };
+		4EF0C16E29DAEC70007143DE /* HydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0C16D29DAEC70007143DE /* HydrationView.swift */; };
+		4EF0C17129DAEC86007143DE /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0C17029DAEC86007143DE /* ActivityView.swift */; };
+		4EF0C17C29DD90A8007143DE /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0C17B29DD90A8007143DE /* DietView.swift */; };
 		9E0337EF29DAB7000061DEEB /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337EE29DAB7000061DEEB /* HomeModel.swift */; };
 		9E0337F129DAC1F70061DEEB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337F029DAC1F70061DEEB /* SettingsModel.swift */; };
 		9E0337F329DAF5740061DEEB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0337F229DAF5740061DEEB /* HomeViewModel.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EF0C16429DAB591007143DE /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
+		4EF0C16729DAEBFC007143DE /* HeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateView.swift; sourceTree = "<group>"; };
+		4EF0C16D29DAEC70007143DE /* HydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationView.swift; sourceTree = "<group>"; };
+		4EF0C17029DAEC86007143DE /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		4EF0C17B29DD90A8007143DE /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		9E0337EE29DAB7000061DEEB /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		9E0337F029DAC1F70061DEEB /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		9E0337F229DAF5740061DEEB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -43,6 +53,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EF0C16029DAB516007143DE /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C17A29DD9097007143DE /* DietContent */,
+				4EF0C16C29DAEC3D007143DE /* ActivityContent */,
+				4EF0C16B29DAEC30007143DE /* HydrationContent */,
+				4EF0C16629DAEBDE007143DE /* HeartContent */,
+				4EF0C16129DAB535007143DE /* SleepContent */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		4EF0C16129DAB535007143DE /* SleepContent */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C16429DAB591007143DE /* SleepContentView.swift */,
+			);
+			path = SleepContent;
+			sourceTree = "<group>";
+		};
+		4EF0C16629DAEBDE007143DE /* HeartContent */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C16729DAEBFC007143DE /* HeartRateView.swift */,
+			);
+			path = HeartContent;
+			sourceTree = "<group>";
+		};
+		4EF0C16B29DAEC30007143DE /* HydrationContent */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C16D29DAEC70007143DE /* HydrationView.swift */,
+			);
+			path = HydrationContent;
+			sourceTree = "<group>";
+		};
+		4EF0C16C29DAEC3D007143DE /* ActivityContent */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C17029DAEC86007143DE /* ActivityView.swift */,
+			);
+			path = ActivityContent;
+			sourceTree = "<group>";
+		};
+		4EF0C17A29DD9097007143DE /* DietContent */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0C17B29DD90A8007143DE /* DietView.swift */,
+			);
+			path = DietContent;
+			sourceTree = "<group>";
+		};
 		9EA7AD9F29CB265C0065B0D5 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +124,7 @@
 		9EA7ADAA29CB265C0065B0D5 /* HealthDeprived */ = {
 			isa = PBXGroup;
 			children = (
+				4EF0C16029DAB516007143DE /* Content */,
 				9EF061F329D57EC6003428B9 /* Settings */,
 				9EF061F029D57E19003428B9 /* Home */,
 				9EA7ADB929CB39680065B0D5 /* HealthDeprived.entitlements */,
@@ -170,10 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF0C16829DAEBFC007143DE /* HeartRateView.swift in Sources */,
+				4EF0C16529DAB591007143DE /* SleepContentView.swift in Sources */,
+				4EF0C17C29DD90A8007143DE /* DietView.swift in Sources */,
+				4EF0C16E29DAEC70007143DE /* HydrationView.swift in Sources */,
 				9E0337EF29DAB7000061DEEB /* HomeModel.swift in Sources */,
 				9E0337F329DAF5740061DEEB /* HomeViewModel.swift in Sources */,
 				9E0337F129DAC1F70061DEEB /* SettingsModel.swift in Sources */,
 				9EF061F529D57ED4003428B9 /* SettingsView.swift in Sources */,
+				4EF0C17129DAEC86007143DE /* ActivityView.swift in Sources */,
 				9EF061F229D57E45003428B9 /* HomeView.swift in Sources */,
 				9EA7ADAC29CB265C0065B0D5 /* HealthDeprivedApp.swift in Sources */,
 				9E0337F529DD93ED0061DEEB /* Factory.swift in Sources */,
