@@ -12,16 +12,63 @@ struct SettingsView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    Text("Hello, World")
+                    personalDataSettings(personalData: PersonalData(firstName: "Josian", lastName: "van Efferen", dateOfBirth: "29 Jan 2004 (19)", sex: "Male", weigthInKg: 70, heightInCm: 180))
                     Spacer().frame(minHeight: 20)
                 }
                 .navigationTitle("Settings")
-                .padding(.horizontal, 20)
+                //.padding(.horizontal, 20)
                 .padding(.top, 20.0)
                 //.padding(.bottom, 20)
-                .background(Color(UIColor.secondarySystemBackground))
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 900)
             }
             .background(Color(UIColor.secondarySystemBackground))
+        }
+    }
+}
+
+
+private struct personalDataSettings: View {
+    let personalData: PersonalData
+    var body: some View {
+        List {
+            Section(header: Text("Personal Health Data")) {
+                HStack {
+                    Text("First Name")
+                    Spacer()
+                    Text(personalData.firstName)
+                }
+                
+                HStack {
+                    Text("Last Name")
+                    Spacer()
+                    Text(personalData.lastName)
+                }
+                
+                HStack {
+                    Text("Date of Birth")
+                    Spacer()
+                    Text(personalData.dateOfBirth)
+                }
+                
+                HStack {
+                    Text("Sex")
+                    Spacer()
+                    Text(personalData.sex)
+                }
+                
+                HStack {
+                    Text("Weigth")
+                    Spacer()
+                    Text(String(personalData.weigthInKg) + " kg")
+                }
+                
+                HStack {
+                    Text("Height")
+                    Spacer()
+                    Text(String(personalData.heightInCm) + " cm")
+                }
+            }
+
         }
     }
 }

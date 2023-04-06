@@ -6,13 +6,25 @@
 //
 
 import SwiftUI
+import HealthKit
+
 
 struct HomeView: View {
+    @StateObject private var vm: HomeViewModel
+    @ObservedObject private var dataModel: HomeDataModel
+    private var factory: Factory
+
+    init(_factory: Factory) {
+        factory = _factory
+        _dataModel = ObservedObject(wrappedValue: _factory.provideHomeDataModel())
+        _vm = StateObject(wrappedValue: _factory.provideHomeViewModel())
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    sleepWidget()
+                    sleepWidget(data: dataModel)
                     heartWidget()
                     restingHeartWidget()
                     hydration()
@@ -25,11 +37,14 @@ struct HomeView: View {
                 .padding(.top, 20.0)
             }
             .background(Color(UIColor.secondarySystemBackground))
+        }.onAppear() {
+            vm.updateUi()
         }
     }
 }
 
 private struct sleepWidget: View {
+    @State var data: HomeDataModel
     var body: some View {
         NavigationLink{
             Text("Hello, World!")
@@ -39,7 +54,7 @@ private struct sleepWidget: View {
                 HStack {
                     Label("Sleep", systemImage: "bed.double.fill")
                         .font(.headline)
-                        .foregroundColor(Color(UIColor.systemGreen))
+                        .foregroundColor(data.colorSleep)
                     .padding([.horizontal], 15)
                     .padding(.top, 10)
                     Spacer()
@@ -51,7 +66,7 @@ private struct sleepWidget: View {
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("8")
+                            Text(String(data.hoursAsleep))
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(UIColor.label))
@@ -60,7 +75,7 @@ private struct sleepWidget: View {
                                 .fontWeight(.medium)
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                             
-                            Text("23")
+                            Text(String(data.minutesAsleep))
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(UIColor.label))
@@ -83,7 +98,7 @@ private struct sleepWidget: View {
                     
                     Image(systemName: "poweroutlet.type.k.fill")
                         .font(.largeTitle)
-                        .foregroundColor(Color(UIColor.systemGreen))
+                        .foregroundColor(data.colorSleep)
                         .padding(.trailing, 10)
                     
                 }.padding(.bottom, 5)
@@ -429,8 +444,11 @@ private struct activityWidget: View {
 
 
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    var healthStore: HKHealthStore = HKHealthStore()
+//    let factory: Factory = Factory()
+//    factory.generateClasses(_healthStore: healthStore)
+//    static var previews: some View {
+//        HomeView(factory: factory)
+//    }
+//}
