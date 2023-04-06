@@ -32,7 +32,7 @@ struct HomeView: View {
 private struct sleepWidget: View {
     var body: some View {
         NavigationLink{
-            Text("Hello, World!")
+            SleepContentView()  
         } label: {
             VStack(alignment: .leading) {
                 
@@ -110,7 +110,7 @@ private struct sleepWidget: View {
 private struct heartWidget: View {
     var body: some View {
         NavigationLink{
-            Text("Hello, World!")
+            HeartRateView()
         } label: {
             VStack(alignment: .leading) {
                 
@@ -179,7 +179,7 @@ private struct heartWidget: View {
 private struct restingHeartWidget: View {
     var body: some View {
         NavigationLink{
-            Text("Hello, World!")
+            HeartRateView()
         } label: {
             VStack(alignment: .leading) {
                 
@@ -248,7 +248,7 @@ private struct restingHeartWidget: View {
 private struct hydration: View {
     var body: some View {
         NavigationLink{
-            Text("Hello, World!")
+            HydrationView()
         } label: {
             VStack(alignment: .leading) {
                 
@@ -314,7 +314,7 @@ private struct hydration: View {
 private struct activityWidget: View {
     var body: some View {
         NavigationLink{
-            Text("Hello, World!")
+            ActivityView()
         } label: {
             VStack(alignment: .leading) {
                 
