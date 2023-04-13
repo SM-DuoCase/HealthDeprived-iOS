@@ -344,7 +344,7 @@ private struct hydration: View {
 private struct activityWidget: View {
     var body: some View {
         NavigationLink{
-            ActivityView()
+            DietView()
         } label: {
             VStack(alignment: .leading) {
                 

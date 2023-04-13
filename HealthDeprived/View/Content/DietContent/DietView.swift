@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct DietView: View {
+    @State private var showingAlert = false
+    @State private var name = ""
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
                 Button {
-                    
+                    showingAlert.toggle()
                 } label: {
-                    Text("Add Consumed Products")
+                    Text("Add Consumed Product")
                         .frame(maxWidth: .infinity)
+                }
+                .alert("Add Consumed Product", isPresented: $showingAlert) {
+                    TextField("0", text: $name)
+                    Button("OK", action: {})
+                    Button("Cancel"){}
+                } message: {
+                    Text("Enter consumed product")
                 }
                 .buttonStyle(.borderedProminent)
                 .padding(.horizontal, 20)
