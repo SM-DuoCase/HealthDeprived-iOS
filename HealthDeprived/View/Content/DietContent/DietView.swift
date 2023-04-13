@@ -144,13 +144,16 @@ private struct CarbsCard: View{
 private struct ProteinCard: View{
     var body: some View {
         Spacer()
+        
         VStack(alignment: .leading) {
+
             HStack {
                 Label("Protein", systemImage: "carrot.fill")
                     .font(.headline)
                     .foregroundColor(Color(UIColor.systemGreen))
                 .padding([.horizontal], 15)
                 .padding(.top, 10)
+               
             }
             
             HStack {
@@ -161,12 +164,15 @@ private struct ProteinCard: View{
                             .fontWeight(.semibold)
                             .foregroundColor(Color(UIColor.label))
                     }
+                    
                     Divider()
+                    
                 }
                 .padding(.horizontal, 15)
                 .padding(.top, 1)
-            }
-            .padding(.bottom, 5)
+                
+            
+            }.padding(.bottom, 5)
             
             HStack{
                 VStack(alignment: .leading){
@@ -209,6 +215,7 @@ private struct ProteinCard: View{
                 .padding(.horizontal, 15)
                 .padding(.top, 1)
             }
+            
             Spacer()
             
             Divider().padding(.horizontal, 15)
@@ -222,6 +229,7 @@ private struct ProteinCard: View{
             .padding(.horizontal, 15)
             .padding(.top, 1)
             Spacer()
+            
         }
         .frame(
           minWidth: 0,
@@ -230,7 +238,9 @@ private struct ProteinCard: View{
         )
         .background(Color(UIColor.systemBackground), ignoresSafeAreaEdges: [])
         .cornerRadius(10)
-        .padding(.top, 15)
+        
+        
+    
     }
     
 }
