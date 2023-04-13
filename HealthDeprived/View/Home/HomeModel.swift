@@ -32,9 +32,7 @@ class HomeDataModel: ObservableObject {
     @Published var colorStand: Color
     
     @Published var colorActivity: Color
-    
-    @Published var sexLmao: String
-    
+        
     init() {
         hoursAsleep = 0
         minutesAsleep = 0
@@ -52,6 +50,5 @@ class HomeDataModel: ObservableObject {
         stand = 0
         colorStand = Color(UIColor.systemRed)
         colorActivity = Color(UIColor.systemRed)
-        sexLmao = "Unknown"
     }
 }

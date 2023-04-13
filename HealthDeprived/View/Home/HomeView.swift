@@ -10,14 +10,14 @@ import HealthKit
 
 
 struct HomeView: View {
-    @StateObject private var vm: HomeViewModel
-    @ObservedObject private var dataModel: HomeDataModel
+    private var vm: HomeViewModel
+    private var dataModel: HomeDataModel
     private var factory: Factory
 
     init(_factory: Factory) {
         factory = _factory
-        _dataModel = ObservedObject(wrappedValue: _factory.provideHomeDataModel())
-        _vm = StateObject(wrappedValue: _factory.provideHomeViewModel())
+        self.dataModel = _factory.provideHomeDataModel()
+        self.vm = _factory.provideHomeViewModel()
     }
     
     var body: some View {
@@ -25,9 +25,9 @@ struct HomeView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     sleepWidget(data: dataModel)
-                    heartWidget()
-                    restingHeartWidget()
-                    hydration()
+                    heartWidget(data: dataModel)
+                    restingHeartWidget(data: dataModel)
+                    hydration(data: dataModel)
                     activityWidget()
                     Spacer().frame(minHeight: 20)
                 }
@@ -43,8 +43,20 @@ struct HomeView: View {
     }
 }
 
+private func getSmiley(color: Color) -> String {
+    if (color == Color(UIColor.systemRed)) {
+        return "poweroutlet.type.i.fill"
+    }
+    else if (color == Color(UIColor.systemYellow)) {
+        return "poweroutlet.type.b.fill"
+    }
+    else {
+        return "poweroutlet.type.k.fill"
+    }
+}
+
 private struct sleepWidget: View {
-    @State var data: HomeDataModel
+    @ObservedObject var data: HomeDataModel
     var body: some View {
         NavigationLink{
             SleepContentView()  
@@ -96,7 +108,7 @@ private struct sleepWidget: View {
                     
                     Spacer()
                     
-                    Image(systemName: "poweroutlet.type.k.fill")
+                    Image(systemName: getSmiley(color: data.colorSleep))
                         .font(.largeTitle)
                         .foregroundColor(data.colorSleep)
                         .padding(.trailing, 10)
@@ -123,6 +135,7 @@ private struct sleepWidget: View {
 
 
 private struct heartWidget: View {
+    @ObservedObject var data: HomeDataModel
     var body: some View {
         NavigationLink{
             HeartRateView()
@@ -132,7 +145,7 @@ private struct heartWidget: View {
                 HStack {
                     Label("Heart Rate", systemImage: "heart.fill")
                         .font(.headline)
-                        .foregroundColor(Color(UIColor.systemGreen))
+                        .foregroundColor(data.colorHeart)
                     .padding([.horizontal], 15)
                     .padding(.top, 10)
                     Spacer()
@@ -144,7 +157,7 @@ private struct heartWidget: View {
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("89")
+                            Text(String(data.heartRate))
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(UIColor.label))
@@ -165,9 +178,9 @@ private struct heartWidget: View {
                     
                     Spacer()
                     
-                    Image(systemName: "poweroutlet.type.k.fill")
+                    Image(systemName: getSmiley(color: data.colorHeart))
                         .font(.largeTitle)
-                        .foregroundColor(Color(UIColor.systemGreen))
+                        .foregroundColor(data.colorHeart)
                         .padding(.trailing, 10)
                     
                 }.padding(.bottom, 5)
@@ -192,6 +205,7 @@ private struct heartWidget: View {
 
 
 private struct restingHeartWidget: View {
+    @ObservedObject var data: HomeDataModel
     var body: some View {
         NavigationLink{
             HeartRateView()
@@ -201,7 +215,7 @@ private struct restingHeartWidget: View {
                 HStack {
                     Label("Resting Heart Rate", systemImage: "heart.fill")
                         .font(.headline)
-                        .foregroundColor(Color(UIColor.systemYellow))
+                        .foregroundColor(data.colorRestingHeart)
                     .padding([.horizontal], 15)
                     .padding(.top, 10)
                     Spacer()
@@ -213,7 +227,7 @@ private struct restingHeartWidget: View {
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("85")
+                            Text(String(data.restingHeartRate))
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(UIColor.label))
@@ -234,9 +248,9 @@ private struct restingHeartWidget: View {
                     
                     Spacer()
                     
-                    Image(systemName: "poweroutlet.type.b.fill")
+                    Image(systemName: getSmiley(color: data.colorRestingHeart))
                         .font(.largeTitle)
-                        .foregroundColor(Color(UIColor.systemYellow))
+                        .foregroundColor(data.colorRestingHeart)
                         .padding(.trailing, 10)
                     
                 }.padding(.bottom, 5)
@@ -261,6 +275,7 @@ private struct restingHeartWidget: View {
 
 
 private struct hydration: View {
+    @ObservedObject var data: HomeDataModel
     var body: some View {
         NavigationLink{
             HydrationView()
@@ -270,7 +285,7 @@ private struct hydration: View {
                 HStack {
                     Label("Hydration", systemImage: "drop.fill")
                         .font(.headline)
-                        .foregroundColor(Color(UIColor.systemRed))
+                        .foregroundColor(data.colorHydration)
                     .padding([.horizontal], 15)
                     .padding(.top, 10)
                     Spacer()
@@ -282,7 +297,7 @@ private struct hydration: View {
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("250")
+                            Text(String(data.amountHydration))
                                 .font(.title)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(UIColor.label))
@@ -299,9 +314,9 @@ private struct hydration: View {
                     
                     Spacer()
                     
-                    Image(systemName: "poweroutlet.type.i.fill")
+                    Image(systemName: getSmiley(color: data.colorHydration))
                         .font(.largeTitle)
-                        .foregroundColor(Color(UIColor.systemRed))
+                        .foregroundColor(data.colorHydration)
                         .padding(.trailing, 10)
                     
                 }.padding(.bottom, 5)

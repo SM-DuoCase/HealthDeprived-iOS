@@ -12,6 +12,7 @@ class Factory {
     var healthStore: HKHealthStore?
     var homeViewModel: HomeViewModel?
     var homeDataModel: HomeDataModel?
+    var healthKitRepository: HealthKitRepository?
     
     init (){
         
@@ -22,6 +23,7 @@ class Factory {
         homeDataModel = HomeDataModel()
         let _factory = self
         homeViewModel = HomeViewModel(factory: _factory)
+        healthKitRepository = HealthKitRepository(_healthStore: _healthStore)
     }
     func provideHomeViewModel() -> HomeViewModel {
         return homeViewModel!
@@ -33,5 +35,9 @@ class Factory {
     
     func provideHealthStore() -> HKHealthStore {
         return healthStore!
+    }
+    
+    func provideHealthKitRepository() -> HealthKitRepository {
+        return healthKitRepository!
     }
 }
